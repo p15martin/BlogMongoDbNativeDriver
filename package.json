@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "express": "2.2.0",
+    "connect-jsonrpc": "0.0.1",
     "mongodb": "0.9.x"
   }
 }

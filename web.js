@@ -1,5 +1,5 @@
 var express = require( 'express' );
-var mongoose = require( 'mongoose' );
+var mongo = require( 'mongodb' );
 
 var port = process.env.PORT || 3000;
 var mongoUri = process.env.MONGOLAB_URI;
