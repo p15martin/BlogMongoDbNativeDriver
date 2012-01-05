@@ -20,7 +20,7 @@ connect.createServer(
 
 mongo.connect( mongoUri, {}, function ( error, db )
 {
-    database.addListener( "error", function handleError( error )
+    db.addListener( "error", function handleError( error )
     {
         console.log( "Error connecting to MongoLab" );
     });
