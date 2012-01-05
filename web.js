@@ -4,6 +4,7 @@ var mongo = require( 'mongodb' );
 var port = process.env.PORT || 3000;
 var mongoUri = process.env.MONGOLAB_URI;
 
+var database = null;
 var contactsCollection = null;
 
 var contacts = {
@@ -22,8 +23,10 @@ express.createServer(
 
 function dbConnectCallback( error, db )
 {
-    db.addListener( "error", handleError );
-    db.createCollection( "contacts", createCollectionCallback );
+    database = db;
+
+    database.addListener( "error", handleError );
+    database.createCollection( "contacts", createCollectionCallback );
 };
 
 function handleError( error )
@@ -33,7 +36,7 @@ function handleError( error )
 
 function createCollectionCallback( error, collection )
 {
-    db.collection( "contacts", collectionCallback )
+    database.collection( "contacts", collectionCallback )
 };
 
 function collectionCallback( error, collection )
