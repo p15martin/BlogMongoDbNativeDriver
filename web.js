@@ -51,6 +51,6 @@ function addToDatabase( firstName, lastName, requestCallback )
     if ( contactsCollection != null )
         contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
         {
-            requestCallback( null, result );
+            requestCallback( null, "success" );
         });
 };
