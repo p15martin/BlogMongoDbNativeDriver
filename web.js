@@ -9,7 +9,7 @@ mongo.connect( process.env.MONGOLAB_URI, {}, dbConnectCallback );
 function dbConnectCallback( error, db ) {
 
     db.addListener( "error", handleError );
-    db.createCollection( "requests", creatCollectionCallback );
+    db.createCollection( "requests", createCollectionCallback );
 };
 
 function handleError( error ) {
