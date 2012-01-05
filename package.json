@@ -1,0 +1,8 @@
+{
+  "name": "mongotest",
+  "version": "1.0.0",
+  "dependencies": {
+    "connect": "1.8.x",
+    "mongodb": "0.9.x"
+  }
+}
