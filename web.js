@@ -1,4 +1,4 @@
-var express = require( 'express' );
+var connect = require( 'connect' );
 var mongo = require( 'mongodb' );
 
 var port = process.env.PORT || 3000;
@@ -16,7 +16,7 @@ var contacts = {
 
 mongo.connect( mongoUri, {}, dbConnectCallback );
 
-express.createServer(
+connect.createServer(
 
     require( 'connect-jsonrpc' )( contacts )
 ).listen( port );
