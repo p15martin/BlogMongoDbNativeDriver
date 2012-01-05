@@ -32,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Procfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
@@ -41,19 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="0" selection-start="1045" selection-end="1045" vertical-scroll-proportion="-27.692308">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deep.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="deep.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deep.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="2" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
+            <state line="28" column="4" selection-start="690" selection-end="690" vertical-scroll-proportion="0.4204204">
               <folding />
             </state>
           </provider>
@@ -71,8 +62,8 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/web.js" />
-        <option value="$PROJECT_DIR$/deep.js" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/deep.js" />
       </list>
     </option>
   </component>
@@ -227,20 +218,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1045" selection-end="1045" vertical-scroll-proportion="-27.692308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deep.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="2" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="22" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
@@ -248,9 +225,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.73997945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deep.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="4" selection-start="690" selection-end="690" vertical-scroll-proportion="0.4204204">
           <folding />
         </state>
       </provider>
