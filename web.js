@@ -1,51 +1,58 @@
-var connect = require( 'connect' );
-var mongo = require( 'mongodb' );
+var express = require( 'express' );
+var mongoose = require( 'mongoose' );
 
-// Connect to a mongo database via URI
-// With the MongoLab addon the MONGOLAB_URI config variable is added to your
-// Heroku environment.  It can be accessed as process.env.MONGOLAB_URI
-mongo.connect( process.env.MONGOLAB_URI, {}, dbConnectCallback );
+var port = process.env.PORT || 3000;
+var mongoUri = process.env.MONGOLAB_URI;
 
-function dbConnectCallback( error, db ) {
+var contactsCollection = null;
 
-    db.addListener( "error", handleError );
-    db.createCollection( "requests", createCollectionCallback );
-};
-
-function handleError( error ) {
-
-    console.log("Error connecting to MongoLab");
-
-};
-
-function createCollectionCallback( error, collection ) {
-
-    db.collection( "requests", collectionCallback )
-};
-
-function collectionCallback( error, collection ) {
-
-    var requestCollection = collection;
-
-    connect(
-        connect.favicon(),                    // Return generic favicon
-        connect.query(),                      // populate req.query with query parameters
-        connect.bodyParser(),                 // Get JSON data from body
-        handleRequest ).listen(process.env.PORT || 8080);
-};
-
-function handlerRequest( req, res, next ) {
-
-    res.setHeader("Content-Type", "application/json");
-
-    if ( req.query != null ) {
-        requestCollection.insert( req.query, insertCallback );
+var contacts = {
+    add: function( firstName, lastName, requestCallback )
+    {
+        addToDatabase( firstName, lastName, requestCallback );
     }
-
-    res.end();
 };
 
-function insertCallback( error, result ) {
-    
+mongo.connect( mongouri, {}, dbConnectCallback );
+
+express.createServer(
+
+    require( 'connect-jsonrpc' )( contacts )
+).listen( port );
+
+function dbConnectCallback( error, db )
+{
+    db.addListener( "error", handleError );
+    db.createCollection( "contacts", createCollectionCallback );
+};
+
+function handleError( error )
+{
+    console.log( "Error connecting to MongoLab" );
+};
+
+function createCollectionCallback( error, collection )
+{
+    db.collection( "contacts", collectionCallback )
+};
+
+function collectionCallback( error, collection )
+{
+    contactsCollection = collection;
+};
+
+function insertCallback( error, result )
+{
     res.write( JSON.stringify( result ) );
+};
+
+function addToDatabase( firstName, lastName, requestCallback )
+{
+    console.log( "***** addToDatabase *****" );
+
+    if ( contactsCollection != null )
+        contactsCollection.insert( firstName, function(error, result) {
+
+            requestCallback( null, result );
+        });
 };
