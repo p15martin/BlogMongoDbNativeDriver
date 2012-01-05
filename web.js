@@ -13,7 +13,7 @@ var contacts = {
     }
 };
 
-mongo.connect( mongouri, {}, dbConnectCallback );
+mongo.connect( mongoUri, {}, dbConnectCallback );
 
 express.createServer(
 
@@ -39,11 +39,6 @@ function createCollectionCallback( error, collection )
 function collectionCallback( error, collection )
 {
     contactsCollection = collection;
-};
-
-function insertCallback( error, result )
-{
-    res.write( JSON.stringify( result ) );
 };
 
 function addToDatabase( firstName, lastName, requestCallback )
