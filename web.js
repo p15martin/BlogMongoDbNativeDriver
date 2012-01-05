@@ -51,8 +51,8 @@ function addToDatabase( firstName, lastName, requestCallback )
     console.log( "***** addToDatabase *****" );
 
     if ( contactsCollection != null )
-        contactsCollection.insert( firstName, function(error, result) {
-
+        contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
+        {
             requestCallback( null, result );
         });
 };
