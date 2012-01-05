@@ -25,7 +25,7 @@ mongo.connect( mongoUri, {}, function ( error, db )
         console.log( "Error connecting to MongoLab" );
     });
 
-    database.createCollection( "contacts", function ( error, collection )
+    db.createCollection( "contacts", function ( error, collection )
     {
         db.collection( "contacts", function ( error, collection ) {
             contactsCollection = collection;
