@@ -1,1 +1,1 @@
-web: node deep.js
+web: node web.js
