@@ -9,7 +9,19 @@ var contactsCollection = null;
 var contacts = {
     add: function( firstName, lastName, requestCallback )
     {
-        addToDatabase( firstName, lastName, requestCallback );
+        db.collection( "contacts" ).insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
+        {
+            requestCallback( null, "success" );
+        });
+        /*
+        if ( contactsCollection != null )
+        {
+            contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
+            {
+                requestCallback( null, "success" );
+            });
+        }
+        */
     }
 };
 
@@ -24,20 +36,13 @@ mongo.connect( mongoUri, {}, function ( error, db )
     {
         console.log( "Error connecting to MongoLab" );
     });
-
+    /*
     db.createCollection( "contacts", function ( error, collection )
     {
-        db.collection( "contacts", function ( error, collection ) {
+        db.collection( "contacts", function ( error, collection )
+        {
             contactsCollection = collection;
         });
     });
+    */
 });
-
-function addToDatabase( firstName, lastName, requestCallback )
-{
-    if ( contactsCollection != null )
-        contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
-        {
-            requestCallback( null, "success" );
-        });
-};

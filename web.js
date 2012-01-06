@@ -10,7 +10,13 @@ var contactsCollection = null;
 var contacts = {
     add: function( firstName, lastName, requestCallback )
     {
-        addToDatabase( firstName, lastName, requestCallback );
+        if ( contactsCollection != null )
+        {
+            contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
+            {
+                requestCallback( null, "success" );
+            });
+        }
     }
 };
 
@@ -42,13 +48,4 @@ function createCollectionCallback( error, collection )
 function collectionCallback( error, collection )
 {
     contactsCollection = collection;
-};
-
-function addToDatabase( firstName, lastName, requestCallback )
-{
-    if ( contactsCollection != null )
-        contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
-        {
-            requestCallback( null, "success" );
-        });
 };
