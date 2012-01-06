@@ -3,18 +3,12 @@ var mongo = require( 'mongodb' );
 
 var port = process.env.PORT || 3000;
 var mongoUri = process.env.MONGOLAB_URI;
-var db = mongo.connect( mongoUri );
 
 var contactsCollection = null;
 
 var contacts = {
     add: function( firstName, lastName, requestCallback )
     {
-        db.collection( "contacts" ).insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
-        {
-            requestCallback( null, "success" );
-        });
-        /*
         if ( contactsCollection != null )
         {
             contactsCollection.insert( { "firstName": firstName, "lastName": lastName }, function(error, result)
@@ -22,7 +16,6 @@ var contacts = {
                 requestCallback( null, "success" );
             });
         }
-        */
     }
 };
 
